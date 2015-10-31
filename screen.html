@@ -188,7 +188,20 @@
         }
 
         if(score[0] >= 3 || score[1] >=3) {
-          airconsole.navigateHome();
+          var wait_div = document.getElementById("wait");
+
+          if (players == 2) {
+          if (!ball.move.x) {
+            resetBall(50, 0);
+          }
+            wait_div.innerHTML = "";
+          } else if (score[0] >= 3) {
+            wait_div.innerHTML = "Win Player1!!";
+            resetBall(0, 0);
+          } else if (score[1] >=3) {
+           wait_div.innerHTML = "Win Player2!!";
+            resetBall(0, 0);
+          }
         }
 
         draw();
