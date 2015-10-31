@@ -82,6 +82,7 @@
       function updateScore(player) {
         score[player - 1] += 1;
         hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
+        $.wait(1000);
         var name = airconsole.devices[player].nickname || "Player " + player;
         score_el.innerHTML = "<div style='font-size: 20px;margin-top:16px'>" +
                              name + " scored!</div>";
@@ -190,7 +191,7 @@
         if(score[0] >= 4 || score[1] >=4) {
 
           if (score[0] >= 3) {
-            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'> Player1 win!</div>";
+            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>Player1 win!</div>";
             resetBall(0, 0);
          
           } else if (score[1] >=3) {
