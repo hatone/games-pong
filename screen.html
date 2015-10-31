@@ -85,16 +85,16 @@
         
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
-        }, 500 );
+        }, 1000 );
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
-        }, 500 );
+        }, 1000 );
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
-        }, 500 );
+        }, 1000 );
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
-        }, 500 );
+        }, 1000 );
 
         window.setTimeout( function() {
         hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
@@ -209,10 +209,12 @@
         if(score[0] >= 10 || score[1] >=10) {
 
           if (score[0] >= 10) {
-            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>Player1 win!</div>";
+            var name = airconsole.devices[1].nickname || "Player " + player;
+            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>" + name + "win!</div>";
             resetBall(0, 0);
          
           } else if (score[1] >=10) {
+            var name = airconsole.devices[2].nickname || "Player " + player;
             score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>Player1 win!</div>";
             resetBall(0, 0);
           }
