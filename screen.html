@@ -1,6 +1,8 @@
 <html>
   <head>
     <script type="text/javascript" src="http://www.airconsole.com/api/airconsole-1.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
     <script type="text/javascript">
       var players;
       var ball;
@@ -9,6 +11,16 @@
       var airconsole;
       var last = null;
       var score_el;
+
+      function hueCall() {
+        $.ajax({
+          type: 'POST', // Use POST with X-HTTP-Method-Override or a straight PUT if appropriate.
+          dataType: 'json', // Set datatype - affects Accept header
+          url: "http://192.168.1.15/api/newdeveloper/lights/3/state", // A valid URL
+          headers: {"X-HTTP-Method-Override": "PUT"}, // X-HTTP-Method-Override set to PUT.
+          data: '{"on":true, "sat": 255, "bri":254,"hue": 65535}' // Some data e.g. Valid JSON as a string
+          });
+      }
 
       /**
        * Sets up the communication to game pads.
@@ -94,6 +106,8 @@
         canvas.height = canvas.clientHeight;
         window.onresize = (clearCanvas);
         last = new Date().getTime();
+
+        hueCall();
         loop();
       }
 
