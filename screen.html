@@ -201,7 +201,7 @@
 
         if(score[0] >= 10 || score[1] >=10) {
         window.setTimeout( function() {
-        hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
+         hueCall('{"on":true, "sat": 255, "bri":255,"hue": 20000}');
         }, 1500 );
           if (score[0] >= 10) {
             score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>Player1 win!</div>";
