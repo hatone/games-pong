@@ -81,6 +81,7 @@
        */
       function updateScore(player) {
         score[player - 1] += 1;
+        hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
         var name = airconsole.devices[player].nickname || "Player " + player;
         score_el.innerHTML = "<div style='font-size: 20px;margin-top:16px'>" +
                              name + " scored!</div>";
@@ -111,7 +112,7 @@
         window.onresize = (clearCanvas);
         last = new Date().getTime();
 
-        hueCall('{"on":true, "sat": 255, "bri":254,"hue": 65535}');
+        hueCall('{"on":true, "sat": 100, "bri":254,"hue": 65535}');
         loop();
       }
 
@@ -186,7 +187,6 @@
           vibrate(1);
         }
         draw();
-
         requestAnimationFrame(loop);
       }
 
@@ -197,6 +197,7 @@
        */
       function resetBall(move_x, move_y) {
         clearCanvas();
+        hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
         ball.pos.x = 100;
         ball.pos.y = 50;
         ball.move.x = move_x;
@@ -279,6 +280,7 @@
         left: 0px;
         width: 100%;
         font-size: 48px;
+        color: #FF8C00;
       }
 
       #wait {
