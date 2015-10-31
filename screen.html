@@ -85,16 +85,16 @@
         
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
-        }, 1000 );
+        }, 1500 );
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
-        }, 1000 );
+        }, 1500 );
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
-        }, 1000 );
+        }, 1500 );
         window.setTimeout( function() {
           hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
-        }, 1000 );
+        }, 1500 );
 
         window.setTimeout( function() {
         hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
@@ -131,7 +131,7 @@
         window.onresize = (clearCanvas);
         last = new Date().getTime();
 
-        hueCall('{"on":true, "sat": 100, "bri":254,"hue": 65535}');
+        hueCall('{"on":true, "sat": 255, "bri":255,"hue": 20000}');
         loop();
       }
 
@@ -209,13 +209,11 @@
         if(score[0] >= 10 || score[1] >=10) {
 
           if (score[0] >= 10) {
-            var name = airconsole.devices[1].nickname || "Player " + player;
-            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>" + name + "win!</div>";
+            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>Player1 win!</div>";
             resetBall(0, 0);
          
           } else if (score[1] >=10) {
-            var name = airconsole.devices[2].nickname || "Player " + player;
-            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>Player1 win!</div>";
+            score_el.innerHTML = "<div style='font-size: 40px;margin-top:16px'>Player2 win!</div>";
             resetBall(0, 0);
           }
         }
