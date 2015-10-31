@@ -82,12 +82,15 @@
       function updateScore(player) {
         score[player - 1] += 1;
         hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
-        setTimeout( function() {
+        
+        window.setTimeout( function() {
         hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
         }, 1500 );
+
         var name = airconsole.devices[player].nickname || "Player " + player;
         score_el.innerHTML = "<div style='font-size: 20px;margin-top:16px'>" +
                              name + " scored!</div>";
+                             
         window.setTimeout(function() {
           score_el.innerHTML = score.join(":");
         }, 1000);
