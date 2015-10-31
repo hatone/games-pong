@@ -82,7 +82,9 @@
       function updateScore(player) {
         score[player - 1] += 1;
         hueCall('{"on":true, "sat": 255, "bri":255,"hue": 65535}');
-        $.wait(1000);
+        setTimeout( function() {
+        hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
+        }, 1500 );
         var name = airconsole.devices[player].nickname || "Player " + player;
         score_el.innerHTML = "<div style='font-size: 20px;margin-top:16px'>" +
                              name + " scored!</div>";
@@ -212,7 +214,7 @@
        */
       function resetBall(move_x, move_y) {
         clearCanvas();
-        hueCall('{"on":true, "sat": 100, "bri":255,"hue": 10000}');
+
         ball.pos.x = 100;
         ball.pos.y = 50;
         ball.move.x = move_x;
